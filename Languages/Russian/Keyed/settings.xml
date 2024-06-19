@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RoadsOfTheRim>Rails and Roads of the Rim</RoadsOfTheRim>
   <RoadsOfTheRimAddConstructionSite>Проложить\nдорогу</RoadsOfTheRimAddConstructionSite>
@@ -29,8 +29,6 @@
   <RoadsOfTheRimWorkOnSite>Работа</RoadsOfTheRimWorkOnSite>
   <RoadsOfTheRimWorkOnSiteDescription>Работы на дорожно-строительной площадке</RoadsOfTheRimWorkOnSiteDescription>
   <RoadsOfTheRim_InsufficientConstructionMinLevel>Железнодорожное или дорожное строительство сокращено до {0} : требуется {1} работников имеющих по крайней мере {2} строительства</RoadsOfTheRim_InsufficientConstructionMinLevel>
-  
-  
   <RoadsOfTheRimSettingsCategoryLabel>Rails and Roads of the Rim</RoadsOfTheRimSettingsCategoryLabel>
   <RoadsOfTheRimSettingsBaseEffort>Базовый множитель к затратам на строительство железных и обычных дорог</RoadsOfTheRimSettingsBaseEffort>
   <RoadsOfTheRimSettingsOverrideCosts>Переопределение стандартных множителей перемещений (требуется перезапуск игры)</RoadsOfTheRimSettingsOverrideCosts>

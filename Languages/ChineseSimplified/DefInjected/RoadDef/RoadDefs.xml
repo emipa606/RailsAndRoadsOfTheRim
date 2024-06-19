@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <DirtPathBuilt.label>泥土小径+</DirtPathBuilt.label>
   <DirtRoadBuilt.label>泥土路+</DirtRoadBuilt.label>
   <StoneRoadBuilt.label>石头路+</StoneRoadBuilt.label>
@@ -13,6 +12,4 @@
   <GlitterOverpass.label>高架闪耀铁轨</GlitterOverpass.label>
   <GlitterYard.label>闪耀火车站</GlitterYard.label>
   <RailTunnel.label>铁路隧道</RailTunnel.label>
-
-
 </LanguageData>

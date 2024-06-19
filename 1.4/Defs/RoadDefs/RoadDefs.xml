@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RoadDef>
     <defName>DirtPathBuilt</defName>
@@ -503,7 +503,7 @@
       </li>
     </modExtensions>
   </RoadDef>
- <RoadDef>
+  <RoadDef>
     <defName>Glitterrail</defName>
     <label>glitterrail</label>
     <priority>40</priority>
