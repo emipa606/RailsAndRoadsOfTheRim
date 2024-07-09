@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using Verse;
 
 namespace RailsAndRoadsOfTheRim;
 
@@ -8,6 +9,11 @@ public static class WorldTargeter_StopTargeting
 {
     public static void Prefix()
     {
+        if (Current.ProgramState != ProgramState.Playing)
+        {
+            return;
+        }
+
         if (RailsAndRoadsOfTheRim.RoadBuildingState.CurrentlyTargeting == null)
         {
             return;

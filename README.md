@@ -1,8 +1,11 @@
-# [Rails and Roads of the Rim (Continued)]()
+# [Rails and Roads of the Rim (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3271115410)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
 Update of Vampiresbanes mod https://steamcommunity.com/sharedfiles/filedetails/?id=2896163437
+
+- Added scrollbar for road-types
+- Added back the ISR2Gs
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 	
@@ -92,3 +95,5 @@ You're welcome to also alter the base xml code that I added for the
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
 
+
+[![Image](https://img.shields.io/github/v/release/emipa606/RailsAndRoadsOfTheRim?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3271115410)

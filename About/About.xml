@@ -23,6 +23,9 @@
   <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of Vampiresbanes mod https://steamcommunity.com/sharedfiles/filedetails/?id=2896163437
 
+- Added scrollbar for road-types
+- Added back the ISR2Gs
+
 [img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
@@ -108,6 +111,8 @@ You're welcome to also alter the base xml code that I added for the
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
-[/list]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.1</modVersion>
+[/list]
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3271115410][img]https://img.shields.io/github/v/release/emipa606/RailsAndRoadsOfTheRim?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.2</modVersion>
 </ModMetaData>
