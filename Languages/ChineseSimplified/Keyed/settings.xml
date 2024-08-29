@@ -67,7 +67,7 @@
   <RoadsOfTheRimSettingsElevationThreshold>高于此海拔，建造成本开始增加</RoadsOfTheRimSettingsElevationThreshold>
   <!-- 原文：Percentage of resources salvaged from existing rails and roads -->
   <RoadsOfTheRimSettingsUpgradeRebate>现有道路的资源回收百分比</RoadsOfTheRimSettingsUpgradeRebate>
-  <!-- EN: Use In Situ Road Ressource Gatherer -->
+  <!-- EN: Use In Situ Road Resource Gatherer -->
   <RoadsOfTheRimSettingsUseISR2G>使用ISR2G</RoadsOfTheRimSettingsUseISR2G>
   <!-- 原文：Working on : {0} [{1} work/sec] -->
   <RoadsOfTheRim_CaravanInspectStringWorkingOn>工作中：{0}[{1}工作进度/秒]</RoadsOfTheRim_CaravanInspectStringWorkingOn>

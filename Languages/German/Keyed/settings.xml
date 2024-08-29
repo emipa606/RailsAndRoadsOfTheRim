@@ -7,7 +7,7 @@
   <RoadsOfTheRim_BiomePreventsConstruction>{0} kann nicht in {1} gebaut werden</RoadsOfTheRim_BiomePreventsConstruction>
   <RoadsOfTheRimRemoveConstructionSite>Konstruktion abbrechen</RoadsOfTheRimRemoveConstructionSite>
   <RoadsOfTheRimRemoveConstructionSiteDescription>Beseitigung von Schienen- oder Straßenbaustellen</RoadsOfTheRimRemoveConstructionSiteDescription>
-  <RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>Wenn Sie diese Seite entfernen, verlieren Sie alle bereits verbrauchten Ressourcen: {0}</RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>
+  <RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>Wenn Sie diese Seite entfernen, verlieren Sie alle bereits verbrauchten Resourcen: {0}</RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>
   <RoadsOfTheRim_ConstructionSiteDescription_Main>Konstruktion {0} erledigt</RoadsOfTheRim_ConstructionSiteDescription_Main>
   <RoadsOfTheRim_ConstructionSiteDescription_Help>, unterstützt durch {0} [{1} Arbeit@{2}/sec]</RoadsOfTheRim_ConstructionSiteDescription_Help>
   <RoadsOfTheRim_ConstructionSiteDescription_HelpStartsWhen>beginnend in {0} Tagen</RoadsOfTheRim_ConstructionSiteDescription_HelpStartsWhen>
@@ -34,7 +34,7 @@
   <RoadsOfTheRimSettingsBaseEffort>Basismultiplikator auf die Baukosten für Schiene und Straße</RoadsOfTheRimSettingsBaseEffort>
   <RoadsOfTheRimSettingsOverrideCosts>Standard-Bewegungsmultiplikatoren außer Kraft setzen (erfordert einen Neustart des Spiels)</RoadsOfTheRimSettingsOverrideCosts>
   <RoadsOfTheRimSettingsElevationThreshold>Höhe, bei der der Kostenanstieg beginnt</RoadsOfTheRimSettingsElevationThreshold>
-  <RoadsOfTheRimSettingsUpgradeRebate>Prozentualer Anteil der geborgenen Ressourcen an bestehenden Schienen und Straßen</RoadsOfTheRimSettingsUpgradeRebate>
+  <RoadsOfTheRimSettingsUpgradeRebate>Prozentualer Anteil der geborgenen Resourcen an bestehenden Schienen und Straßen</RoadsOfTheRimSettingsUpgradeRebate>
   <RoadsOfTheRim_CaravanInspectStringWorkingOn>Arbeiten an : {0} [{1} Arbeit/Sek]</RoadsOfTheRim_CaravanInspectStringWorkingOn>
   <RoadsOfTheRimBuildConstructionSiteAlreadyHere>Hier gibt es bereits eine Baustelle</RoadsOfTheRimBuildConstructionSiteAlreadyHere>
   <RoadsOfTheRimBuildConstructionSiteNotAlreadyHere>Hier gibt es keine Baustelle</RoadsOfTheRimBuildConstructionSiteNotAlreadyHere>
@@ -58,7 +58,7 @@
   <RoadsOfTheRim_siteDescriptionExtra>und {0} mehr</RoadsOfTheRim_siteDescriptionExtra>
   <RoadsOfTheRim_siteFullName>Standortaufbau {0}</RoadsOfTheRim_siteFullName>
   <RoadsOfTheRim_siteFullNameNeighbours>bei {0}</RoadsOfTheRim_siteFullNameNeighbours>
-  <RoadsOfTheRim_CaravanNoResource>{0} hat keine Ressourcen mehr, um {1} zu bauen. Arbeit gestoppt.</RoadsOfTheRim_CaravanNoResource>
+  <RoadsOfTheRim_CaravanNoResource>{0} hat keine Resourcen mehr, um {1} zu bauen. Arbeit gestoppt.</RoadsOfTheRim_CaravanNoResource>
   <RoadsOfTheRim_CaravanNoWork>{0} hat keinen Bauern, der {1} bauen kann. Arbeit gestoppt.</RoadsOfTheRim_CaravanNoWork>
   <RoadsOfTheRim_UpgradeRebate>Vorhandene Schienen oder Straßen reduzieren die Baukosten für {0} um {1}</RoadsOfTheRim_UpgradeRebate>
   <RoadsOfTheRim_UpgradeRebateDetail>{0} {1}</RoadsOfTheRim_UpgradeRebateDetail>

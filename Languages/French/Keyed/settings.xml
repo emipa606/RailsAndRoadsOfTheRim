@@ -7,7 +7,7 @@
   <RoadsOfTheRim_BiomePreventsConstruction>{0} ne peut être construit dans {1}</RoadsOfTheRim_BiomePreventsConstruction>
   <RoadsOfTheRimRemoveConstructionSite>Annuler la construction</RoadsOfTheRimRemoveConstructionSite>
   <RoadsOfTheRimRemoveConstructionSiteDescription>Enlèvement d'un chantier ferroviaire ou routier</RoadsOfTheRimRemoveConstructionSiteDescription>
-  <RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>En supprimant ce site, vous perdrez toutes les ressources déjà consommées : {0}</RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>
+  <RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>En supprimant ce site, vous perdrez toutes les Resources déjà consommées : {0}</RoadsOfTheRim_ConfirmDestroyResourcesAlreadyConsumed>
   <RoadsOfTheRim_ConstructionSiteDescription_Main>Construction {0} effectuée</RoadsOfTheRim_ConstructionSiteDescription_Main>
   <RoadsOfTheRim_ConstructionSiteDescription_Help>, aidé par {0} [{1} travail@{2}/sec]</RoadsOfTheRim_ConstructionSiteDescription_Help>
   <RoadsOfTheRim_ConstructionSiteDescription_HelpStartsWhen>à partir de {0} jours</RoadsOfTheRim_ConstructionSiteDescription_HelpStartsWhen>
@@ -34,7 +34,7 @@
   <RoadsOfTheRimSettingsBaseEffort>Multiplicateur de base pour les coûts de construction des chemins de fer et des routes</RoadsOfTheRimSettingsBaseEffort>
   <RoadsOfTheRimSettingsOverrideCosts>Remplacer les multiplicateurs de mouvement standard (redémarrage du jeu nécessaire)</RoadsOfTheRimSettingsOverrideCosts>
   <RoadsOfTheRimSettingsElevationThreshold>L'élévation à partir de laquelle les coûts commencent à augmenter</RoadsOfTheRimSettingsElevationThreshold>
-  <RoadsOfTheRimSettingsUpgradeRebate>Pourcentage de ressources récupérées sur les rails et les routes existants</RoadsOfTheRimSettingsUpgradeRebate>
+  <RoadsOfTheRimSettingsUpgradeRebate>Pourcentage de Resources récupérées sur les rails et les routes existants</RoadsOfTheRimSettingsUpgradeRebate>
   <RoadsOfTheRim_CaravanInspectStringWorkingOn>Travail sur : {0} [{1} travail/sec]</RoadsOfTheRim_CaravanInspectStringWorkingOn>
   <RoadsOfTheRimBuildConstructionSiteAlreadyHere>Il y a déjà un chantier à cet endroit</RoadsOfTheRimBuildConstructionSiteAlreadyHere>
   <RoadsOfTheRimBuildConstructionSiteNotAlreadyHere>Il n'y a pas de chantier ici</RoadsOfTheRimBuildConstructionSiteNotAlreadyHere>
@@ -58,7 +58,7 @@
   <RoadsOfTheRim_siteDescriptionExtra>et {0} de plus</RoadsOfTheRim_siteDescriptionExtra>
   <RoadsOfTheRim_siteFullName>Construction du site {0}</RoadsOfTheRim_siteFullName>
   <RoadsOfTheRim_siteFullNameNeighbours>près de {0}</RoadsOfTheRim_siteFullNameNeighbours>
-  <RoadsOfTheRim_CaravanNoResource>{0} n'a plus de ressources pour construire {1}. Le travail a été interrompu.</RoadsOfTheRim_CaravanNoResource>
+  <RoadsOfTheRim_CaravanNoResource>{0} n'a plus de Resources pour construire {1}. Le travail a été interrompu.</RoadsOfTheRim_CaravanNoResource>
   <RoadsOfTheRim_CaravanNoWork>{0} n'a pas de pion capable de construire {1}. Le travail est arrêté.</RoadsOfTheRim_CaravanNoWork>
   <RoadsOfTheRim_UpgradeRebate>L'existence d'un chemin de fer ou d'une route réduit les coûts de construction de {0} de {1}.</RoadsOfTheRim_UpgradeRebate>
   <RoadsOfTheRim_UpgradeRebateDetail>{0} {1}</RoadsOfTheRim_UpgradeRebateDetail>

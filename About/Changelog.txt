@@ -1,5 +1,8 @@
 # Changelog for RailsAndRoadsOfTheRim
 
+1.5.3 - Spelling error fix
+
+
 1.5.2 - Added check for active game during harmony patching to avoid issues with mods like ReGrowth Expanded World Generation
 
 
