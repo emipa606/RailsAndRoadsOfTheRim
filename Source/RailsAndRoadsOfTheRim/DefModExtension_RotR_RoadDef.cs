@@ -92,10 +92,10 @@ public class DefModExtension_RotR_RoadDef : DefModExtension
         return result;
     }
 
-    public static bool BiomeAllowed(int tile, RoadDef roadDef, out BiomeDef biomeHere)
+    public static bool BiomeAllowed(PlanetTile tile, RoadDef roadDef, out BiomeDef biomeHere)
     {
         var RoadDefMod = roadDef.GetModExtension<DefModExtension_RotR_RoadDef>();
-        biomeHere = Find.WorldGrid.tiles[tile].biome;
+        biomeHere = Find.WorldGrid.Surface.Tiles[tile].PrimaryBiome;
         if (RoadDefMod.canBuildOnWater && (biomeHere.defName == "Ocean" || biomeHere.defName == "Lake"))
         {
             return true;
@@ -104,10 +104,10 @@ public class DefModExtension_RotR_RoadDef : DefModExtension
         return biomeHere.allowRoads;
     }
 
-    public static bool ImpassableAllowed(int tile, RoadDef roadDef)
+    public static bool ImpassableAllowed(PlanetTile tile, RoadDef roadDef)
     {
         var RoadDefMod = roadDef.GetModExtension<DefModExtension_RotR_RoadDef>();
-        var hillinnessHere = Find.WorldGrid.tiles[tile].hilliness;
+        var hillinnessHere = Find.WorldGrid.Surface.Tiles[tile].hilliness;
         if (RoadDefMod.canBuildOnImpassable && hillinnessHere == Hilliness.Impassable)
         {
             return true;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: asphalt road -->
+  <AsphaltRoad.label>asphalt road</AsphaltRoad.label>
+  <!-- EN: dirt path+ -->
+  <DirtPathBuilt.label>dirt path+</DirtPathBuilt.label>
+  <!-- EN: dirt road+ -->
+  <DirtRoadBuilt.label>dirt road+</DirtRoadBuilt.label>
+  <!-- EN: glit overpass -->
+  <GlitterOverpass.label>glit overpass</GlitterOverpass.label>
+  <!-- EN: glitterrail -->
+  <Glitterrail.label>glitterrail</Glitterrail.label>
+  <!-- EN: glitter road -->
+  <GlitterRoad.label>glitter road</GlitterRoad.label>
+  <!-- EN: glitteryard -->
+  <GlitterYard.label>glitteryard</GlitterYard.label>
+  <!-- EN: railroad -->
+  <Railroad.label>railroad</Railroad.label>
+  <!-- EN: rail overpass -->
+  <RailroadOverpass.label>rail overpass</RailroadOverpass.label>
+  <!-- EN: rail tunnel -->
+  <RailTunnel.label>rail tunnel</RailTunnel.label>
+  <!-- EN: railyard -->
+  <RailYard.label>railyard</RailYard.label>
+  <!-- EN: stone road+ -->
+  <StoneRoadBuilt.label>stone road+</StoneRoadBuilt.label>
+</LanguageData>

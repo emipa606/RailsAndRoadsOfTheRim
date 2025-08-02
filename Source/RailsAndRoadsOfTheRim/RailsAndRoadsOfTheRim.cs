@@ -315,7 +315,10 @@ public class RailsAndRoadsOfTheRim : Mod
 
         try
         {
-            Find.WorldPathGrid.RecalculateAllPerceivedPathCosts();
+            foreach (var (_, planetLayer) in Find.WorldGrid.PlanetLayers)
+            {
+                Find.WorldPathGrid.RecalculateLayerPerceivedPathCosts(planetLayer);
+            }
         }
         catch
         {
@@ -445,7 +448,7 @@ public class RailsAndRoadsOfTheRim : Mod
     /*
     Remove Construction Site
      */
-    public static Command RemoveConstructionSite(int tile)
+    public static Command RemoveConstructionSite(PlanetTile tile)
     {
         // TO DO : Refactor this so we find the site first, to pass it to Deleteconstructionsite directly, or even get rid of that function all together
         var command_Action = new Command_Action
@@ -481,7 +484,7 @@ public class RailsAndRoadsOfTheRim : Mod
     }
 
     /*Delete Construction Site    */
-    public static void DeleteConstructionSite(int tile)
+    public static void DeleteConstructionSite(PlanetTile tile)
     {
         var ConstructionSite =
             (RoadConstructionSite)Find.WorldObjects.WorldObjectOfDefAt(

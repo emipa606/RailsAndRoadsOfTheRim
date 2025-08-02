@@ -104,7 +104,7 @@ public class RoadConstructionLeg : WorldObject
     //      Yes -> We are done creating the site
     //      No ->  delete this leg and all legs after it
     // No -> create a new Leg
-    private static bool ActionOnTile(RoadConstructionSite site, int tile)
+    private static bool ActionOnTile(RoadConstructionSite site, PlanetTile tile)
     {
         if (site.def != DefDatabase<WorldObjectDef>.GetNamed("RoadConstructionSite"))
         {
@@ -136,7 +136,7 @@ public class RoadConstructionLeg : WorldObject
             }
 
             // Check whether we clicked on a neighbour
-            var neighbouringTiles = new List<int>();
+            var neighbouringTiles = new List<PlanetTile>();
             Find.WorldGrid.GetTileNeighbors(tile, neighbouringTiles);
             // This is not a neighbour : do nothing
             if (!neighbouringTiles.Contains(site.LastLeg.Tile))
