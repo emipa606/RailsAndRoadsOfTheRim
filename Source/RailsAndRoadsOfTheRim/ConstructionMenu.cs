@@ -42,7 +42,7 @@ public class ConstructionMenu(RoadConstructionSite site, Caravan caravan) : Wind
 
     // TO DO : COunt number of buildable roads, set the resize later rect based on that
 
-    public override Vector2 InitialSize => new Vector2(676 + 128, 544 + 128);
+    public override Vector2 InitialSize => new(676 + 128, 544 + 128);
     // trying to make the whole menu larger by making the x value above larger, original is 676+128, assuming 64 for legend, that's about 122.4 per road option -
     // 1469 is not quite large enough, but I was right, the x value above does change the whole menu width.  Let's try 1700.  Yes, that works! - Vamp
 

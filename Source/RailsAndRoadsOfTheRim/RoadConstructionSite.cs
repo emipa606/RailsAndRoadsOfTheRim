@@ -143,12 +143,17 @@ public class RoadConstructionSite : WorldObject
         return result.OrderBy(si => si.distance).ToList();
     }
 
-    private void SearchForSettlements(int startTile, ref List<SettlementInfo> settlementsSearched)
+    private static void SearchForSettlements(PlanetTile startTile, ref List<SettlementInfo> settlementsSearched)
     {
         var timer = Stopwatch.StartNew();
         var worldGrid = Find.WorldGrid;
         foreach (var s in Find.WorldObjects.Settlements)
         {
+            if (startTile.Layer != s.Tile.Layer)
+            {
+                continue;
+            }
+
             if (!(worldGrid.ApproxDistanceInTiles(startTile, s.Tile) <= maxNeighbourDistance))
             {
                 continue;

@@ -58,7 +58,7 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
     /*
     Returns the cost modifiers for building a road from one tile to another, based on Elevation, Hilliness, Swampiness & river crossing
      */
-    private static void GetCostsModifiers(int fromTile_int, int toTile_int, ref float elevationModifier,
+    private static void GetCostsModifiers(PlanetTile fromTile_int, PlanetTile toTile_int, ref float elevationModifier,
         ref float hillinessModifier, ref float swampinessModifier, ref float bridgeModifier)
     {
         try
