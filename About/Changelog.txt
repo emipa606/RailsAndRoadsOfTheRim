@@ -1,5 +1,8 @@
 # Changelog for RailsAndRoadsOfTheRim
 
+1.6.2 - Fixed walkability for terrain-defs
+
+
 1.6.1 - Fixed costruct error
 
 

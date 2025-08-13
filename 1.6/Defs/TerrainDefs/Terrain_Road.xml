@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>DirtRecent</defName>
     <label>Recently packed dirt</label>
     <texturePath>Terrain/Surfaces/PackedDirt</texturePath>
@@ -33,7 +33,7 @@
     <scatterType>Rocky</scatterType>
     <generatedFilth>Filth_Dirt</generatedFilth>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>StoneRecent</defName>
     <label>Recently built sandstone flagstone</label>
     <texturePath>Terrain/Surfaces/Flagstone</texturePath>
@@ -139,7 +139,7 @@
     </researchPrerequisites>
     -->
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="TerrainRoadBase">
     <defName>GlitterRoad</defName>
     <label>glitter road</label>
     <texturePath>Terrain/Surfaces/GlitterRoad</texturePath>
@@ -166,7 +166,7 @@
       <li>Road</li>
     </tags>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="TerrainRoadBase">
     <defName>Railroad</defName>
     <label>railroad</label>
     <texturePath>Terrain/Surfaces/Railroad</texturePath>
@@ -247,7 +247,7 @@
       <li>Road</li>
     </tags>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="TerrainRoadBase">
     <defName>Glitterrail</defName>
     <label>glitterrail</label>
     <texturePath>Terrain/Surfaces/Glitterrail</texturePath>
