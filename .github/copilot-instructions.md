@@ -1,33 +1,42 @@
-# GitHub Copilot Instructions for "Rails and Roads of the Rim (Continued)"
+# Copilot Instructions for "Rails and Roads of the Rim (Continued)" Mod
 
-## Mod Overview
-"Rails and Roads of the Rim (Continued)" is a continuation and expansion of Loconeko's "Roads of the Rim", providing players the ability to construct buildable rails and roads on the world map in RimWorld. This mod enables seamless integration with other transport and aesthetic mods such as SRTS Trains and Decorative Railway Props, enriching the gameplay with advanced transportation structures.
+## Mod Overview and Purpose
+"Rails and Roads of the Rim (Continued)" (RRotR) is an expansion and continuation of the popular "Roads of the Rim" mod, originally developed by Loconeko and further building upon Jecrell's "RimRoads" from the beta version of RimWorld. The primary purpose of this mod is to facilitate the construction of roads and railways on the world map, enhancing transportation efficiency and aesthetic visual appeal in the game. The mod supports integration with other transportation-related mods such as SRTS Trains and Decorative Railway Props.
 
 ## Key Features and Systems
-- **Construction Sites**: Players can create rail or road construction sites on the world map. Caravans with skilled colonists and necessary resources can be sent to construct these infrastructures.
-- **Variety of Roads and Rails**: Offers different tiers such as asphalt roads, glitter roads, and rail tunnels, which can bypass difficult terrains, including impassable regions.
-- **Movement Enhancement**: High-tier roads increase caravan movement speed, and some terrain difficulties can be nullified.
-- **Realistic Resource Management**: Construction costs vary by terrain and elevation, and resources can be transported incrementally.
-- **Upgradeability**: Existing roads can be upgraded for reduced costs.
-- **Allied Assistance**: Allied factions can contribute to construction efforts.
+- **Construction Sites:** Players can establish construction sites on the world map for building roads and railways by sending caravans equipped with skilled colonists and necessary resources.
+- **Road/Rail Types:** Includes various road types such as asphalt and glitter roads, as well as rail tunnels capable of traversing impassable terrain.
+- **Movement Enhancements:** Roads and rails reduce biome, hills, swamps, and season movement difficulties, enhancing caravan speed.
+- **Upgrade Mechanism:** Roads can be upgraded to higher tier roads, offering partial reimbursement of existing road resources.
+- **Ally Assistance:** Allied factions can contribute to construction efforts, speeding up project completion.
+- **Cost and Difficulty Settings:** Construction costs vary based on terrain and can be adjusted within mod settings to reflect different levels of realism.
 
 ## Coding Patterns and Conventions
-- **Static Classes for Utility Functions**: Usage of static classes, such as `Alert_CaravanIdle_GetExplanation`, to encapsulate methods related to specific game alerts and gizmos enhances readability and code organization.
-- **Naming Conventions**: CamelCase for methods and PascalCase for class definitions ensure clarity and consistency across the codebase.
-- **Extended Classes**: Usage of Mod-specific extensions in classes, e.g., `DefModExtension_RotR_RoadDef`, enables specific mod functionality without altering base game mechanics.
+- **Static Classes:** Extensively used for utility functions and static methods.
+- **Public Classes and Methods:** Ensures accessibility across the mod's architecture, providing flexibility to integrate with Harmony patches and other mods.
+- **Consistent Naming:** Names follow C# standards with PascalCasing for classes and methods, improving code readability and maintainability.
 
 ## XML Integration
-- XML files are used for defining road and rail types, resource costs, and construction parameters. 
-- The method `LoadDataFromXmlCustom(XmlNode xmlRoot)` in `RotR_cost` facilitates custom XML loading, allowing dynamic resource cost configurations.
+- **Def Mod Extensions:** Custom XML definitions are used to configure road and rail properties (e.g., `DefModExtension_RotR_RoadDef`).
+- **XML Parsing:** The mod employs XML to JSON serialization for mod configuration, ensuring efficient data management (e.g., `RotR_cost` class).
 
 ## Harmony Patching
-- The `HarmonyPatches` class includes patches for enhancing game functionality and integrating the mod seamlessly with existing game mechanics.
-- `Patch_WorldLayer_Paths_AddPathEndpoint` represents a typical Harmony patch structure, allowing for greater customization of the world map rendering process.
-- Use Harmony's Prefix and Postfix methods to maintain compatibility with other mods and minimize conflicts.
+- **Patch Implementation:** Harmony patches are used to alter core game functionalities for compatibility with RRotR features. The `HarmonyPatches` class and `Patch_WorldLayer_Paths_AddPathEndpoint` provide seamless integration.
+- **Method Patching:** Patches modify game methods to adapt the base movement and construction logic to accommodate new transportation systems.
 
 ## Suggestions for Copilot
-- **Suggested Method Implementations**: When working on new feature additions, suggest method stubs or utility functions based on existing patterns in the codebase, e.g., adding more railroad types or custom caravan behaviors using patterns seen in `Caravan_GetInspectString`.
-- **Example XML Definitions**: Recommend XML snippet examples for defining new roads and their properties, leveraging patterns seen in existing XML integrations.
-- **Harmony Usage**: When implementing new game modifications, suggest appropriate Harmony patch templates to ensure compatibility and maintain the game's logic integrity.
-- **Debugging and Optimization Tips**: Propose debug logging implementations or performance optimizations for areas like world path calculations or large data handling to assist in robust mod development.
-- **Code Documentation Suggestions**: Recommend inline documentation enhancements for complex methods within classes like `CaravanArrivalAction_StartWorkingOnRoad` for better understanding and maintainability.
+- **Leverage Code Templates:** Utilize existing static classes as templates when adding new utility functions.
+- **Harmony Patch Templates:** Employ patch method patterns for expanding mod compatibility with future game updates.
+- **XML Handling:** Use defined XML parsing methods for integrating additional configurable options or road types.
+- **Consistent Naming:** Maintain standardized naming conventions to improve mod code integration and future scalability.
+- **Documentation Comments:** Encourage comprehensive XML and C# documentation comments to assist in mod debugging and collaboration.
+
+With these instructions and insights into the mod's architecture, GitHub Copilot can assist developers in maintaining and expanding the RRotR functionality for the RimWorld player community.
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
