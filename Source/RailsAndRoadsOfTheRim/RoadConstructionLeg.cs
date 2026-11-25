@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using RimWorld;
 using RimWorld.Planet;
@@ -222,7 +221,6 @@ public class RoadConstructionLeg : WorldObject
 
     public static void Target(RoadConstructionSite site)
     {
-        // Log.Warning("[RotR] - Target(site)");
         Find.WorldTargeter.BeginTargeting(
             target => ActionOnTile(site, target.Tile),
             true, RotR_StaticConstructorOnStartup.ConstructionLeg_MouseAttachment, false, null,
@@ -232,7 +230,7 @@ public class RoadConstructionLeg : WorldObject
     /*
      * Remove all legs up to and including the one passed in argument
      */
-    public static void Remove(RoadConstructionLeg leg)
+    private static void Remove(RoadConstructionLeg leg)
     {
         var site = leg.site;
         var CurrentLeg = (RoadConstructionLeg)site.LastLeg;

@@ -89,8 +89,8 @@ public class WorldObjectComp_Caravan : WorldObjectComp
 
         // Do some work & stop working if finished
         // Caravan is working AND there's a site here AND caravan can work AND the site is indeed the same the caravan was working on
-        if (currentlyWorkingOnSite & IsThereAConstructionSiteHere() &
-            (CaravanCurrentState() == CaravanState.ReadyToWork) && GetCaravan().Tile == GetSite().Tile)
+        if (currentlyWorkingOnSite && IsThereAConstructionSiteHere() &&
+            CaravanCurrentState() == CaravanState.ReadyToWork && GetCaravan().Tile == GetSite().Tile)
         {
             base.CompTick();
             site.TryToSkipBetterRoads(caravan); // No need to work if there's a better road here
@@ -109,7 +109,7 @@ public class WorldObjectComp_Caravan : WorldObjectComp
         }
 
         // Stop working as soon as the caravan moves, or rests, or is downed
-        if (currentlyWorkingOnSite & (CaravanCurrentState() != CaravanState.ReadyToWork))
+        if (currentlyWorkingOnSite && CaravanCurrentState() != CaravanState.ReadyToWork)
         {
             StopWorking();
             var stoppedReason = "";
@@ -196,27 +196,11 @@ public class WorldObjectComp_Caravan : WorldObjectComp
             /* Either there's no site, no roaddef, or no modextension. In any case, not much to do here */
         }
 
-        //site.roadDef.GetModExtension<DefModExtension_RotR_RoadDef>().minConstruction ;
         var totalConstruction = 0f;
         var totalConstructionAboveMinLevel = 0f;
         var animalConstruction = 0f;
         foreach (var pawn in pawns)
         {
-            /*
-            if (pawn.IsFreeColonist && pawn.health.State == PawnHealthState.Mobile)
-            {
-                totalConstruction += pawn.GetStatValue(StatDefOf.ConstructionSpeed) * pawn.GetStatValue(StatDefOf.ConstructSuccessChance);
-
-                if (roadDefModExtension!=null && pawn.skills.GetSkill(SkillDefOf.Construction).levelInt >= roadDefModExtension.minConstruction)
-                {
-                    totalConstructionAboveMinLevel += pawn.GetStatValue(StatDefOf.ConstructionSpeed) * pawn.GetStatValue(StatDefOf.ConstructSuccessChance);
-                }
-            }
-            else if (pawn.RaceProps.packAnimal  && pawn.health.State == PawnHealthState.Mobile)
-            {
-                animalConstruction += pawn.GetStatValue(StatDefOf.ConstructionSpeed) * pawn.GetStatValue(StatDefOf.ConstructSuccessChance);
-            }
-            */
             var PawnConstructionValue = PawnBuildingUtility.ConstructionValue(pawn);
 
             if (PawnBuildingUtility.HealthyColonist(pawn))
@@ -271,13 +255,11 @@ public class WorldObjectComp_Caravan : WorldObjectComp
     {
         ratio = Math.Max(Math.Min(1, ratio), 0);
         var pawns = GetCaravan().PawnsListForReading;
-        //RailsAndRoadsOfTheRim.DebugLog("Teaching Construction to pawns");
         foreach (var pawn in pawns)
         {
             if (!pawn.IsFreeColonist || pawn.health.State != PawnHealthState.Mobile || pawn.RaceProps.packAnimal)
             {
                 continue;
-                //RailsAndRoadsOfTheRim.DebugLog(pawn.Name+" learned " + ratio + " Xp = "+pawn.skills.GetSkill(SkillDefOf.Construction).XpTotalEarned);
             }
 
             pawn.skills.Learn(SkillDefOf.Construction, 3f * ratio);

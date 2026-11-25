@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Rails and Roads of the Rim (Continued) analysis</title>
+</head>
+<body>
+<h1>Rails and Roads of the Rim (Continued) analysis</h1>
+<h2 id="recommendations">Recommendations</h2>
+<h3 id="highest-priority">Highest Priority</h3>
+<ol>
+<li><strong>Issue: Rails and Roads of the Rim (Continued)</strong>
+<ul>
+<li><strong>Card reference:</strong> <a href="https://trello.com/c/m35kPbWq">Trello Card</a></li>
+<li><strong>Priority:</strong> High</li>
+<li><strong>Implementation Idea:</strong> Investigate and update the mod to ensure it populates the necessary drawing layers in the world map setting file (<code>PlanetLayers.xml</code>) to support rail and road textures over ocean tiles. This may involve adding entries to the <code>PlanetLayers.xml</code> file to include the relevant layers for roads and rails.</li>
+<li><strong>Confidence:</strong> Medium</li>
+<li><strong>Source:</strong> Trello card</li>
+</ul>
+</li>
+</ol>
+<h3 id="lower-priority">Lower Priority</h3>
+<ol start="2">
+<li><p><strong>Issue: Rails and Roads of the Rim (Continued)</strong></p>
+<ul>
+<li><strong>Card reference:</strong> <a href="https://trello.com/c/e2UGabjP">Trello Card</a></li>
+<li><strong>Priority:</strong> Medium</li>
+<li><strong>Implementation Idea:</strong> Add a debug menu option to complete all in-progress construction. This could involve iterating through all construction sites and marking them as complete. Additionally, consider adding a click-and-drag feature for building roads and rails, which would generate the best possible pathing automatically.</li>
+<li><strong>Confidence:</strong> High</li>
+<li><strong>Source:</strong> Trello card</li>
+</ul>
+</li>
+<li><p><strong>Issue: Rails and Roads of the Rim (Continued)</strong></p>
+<ul>
+<li><strong>Card reference:</strong> <a href="https://trello.com/c/plaVQxTR">Trello Card</a></li>
+<li><strong>Priority:</strong> Medium</li>
+<li><strong>Implementation Idea:</strong> Investigate why the VRE-Android Colonist with a 16-construction-skill is being detected as having a 0-construction-skill. This may involve checking the mod's handling of gene-related skill offsets and ensuring it correctly calculates the skill level for the colonist.</li>
+<li><strong>Confidence:</strong> Medium</li>
+<li><strong>Source:</strong> Trello card</li>
+</ul>
+</li>
+</ol>
+<h2 id="semantic-summary-suggestions-no-trello-cards">Semantic-summary suggestions (no Trello cards)</h2>
+<ul>
+<li><p><strong>Improvement:</strong> Consider adding logging or debug information to help diagnose issues related to road and rail construction. This could involve adding console output or using the in-game debug tools to track the state of construction sites.</p>
+<ul>
+<li><strong>Confidence:</strong> Low</li>
+<li><strong>Source:</strong> Semantic summary (no Trello card)</li>
+</ul>
+</li>
+<li><p><strong>Improvement:</strong> Review the mod's handling of caravan arrival actions to ensure that caravans can use roads and rails over ocean tiles. This may involve updating the <code>CaravanArrivalAction_StartWorkingOnRoad</code> class to handle ocean tiles appropriately.</p>
+<ul>
+<li><strong>Confidence:</strong> Low</li>
+<li><strong>Source:</strong> Semantic summary (no Trello card)</li>
+</ul>
+</li>
+</ul>
+<h2 id="deferred-work">Deferred-work</h2>
+<ul>
+<li><p><strong>Issue:</strong> <a href="https://trello.com/c/m35kPbWq">Trello Card</a></p>
+<ul>
+<li><strong>Priority:</strong> Low</li>
+<li><strong>Implementation Idea:</strong> Investigate and update the mod to ensure it populates the necessary drawing layers in the world map setting file (<code>PlanetLayers.xml</code>) to support rail and road textures over ocean tiles. This may involve adding entries to the <code>PlanetLayers.xml</code> file to include the relevant layers for roads and rails.</li>
+<li><strong>Confidence:</strong> Medium</li>
+<li><strong>Source:</strong> Trello card</li>
+</ul>
+</li>
+<li><p><strong>Issue:</strong> <a href="https://trello.com/c/e2UGabjP">Trello Card</a></p>
+<ul>
+<li><strong>Priority:</strong> Low</li>
+<li><strong>Implementation Idea:</strong> Add a debug menu option to complete all in-progress construction. This could involve iterating through all construction sites and marking them as complete. Additionally, consider adding a click-and-drag feature for building roads and rails, which would generate the best possible pathing automatically.</li>
+<li><strong>Confidence:</strong> High</li>
+<li><strong>Source:</strong> Trello card</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
@@ -25,9 +26,8 @@ internal static class WorldPathGrid_CalculatedMovementDifficultyAt
             }
 
             RoadDef BestRoad = null;
-            foreach (var roadLink in tile2.Roads)
+            foreach (var currentRoad in tile2.Roads.Select(roadLink => roadLink.road))
             {
-                var currentRoad = roadLink.road;
                 if (currentRoad == null)
                 {
                     continue;
@@ -41,7 +41,7 @@ internal static class WorldPathGrid_CalculatedMovementDifficultyAt
 
                 if (BestRoad.movementCostMultiplier < currentRoad.movementCostMultiplier)
                 {
-                    BestRoad = roadLink.road;
+                    BestRoad = currentRoad;
                 }
             }
 

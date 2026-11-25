@@ -1,5 +1,8 @@
 # Changelog for RailsAndRoadsOfTheRim
 
+1.7.0 - Mod updated for 1.7 and passed autotests
+
+
 1.6.3 - Missing translation-string
 Used DeepL to update translations for French, German, Russian
 

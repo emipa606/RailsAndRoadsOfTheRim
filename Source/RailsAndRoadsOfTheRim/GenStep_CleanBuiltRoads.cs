@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RailsAndRoadsOfTheRim;
@@ -14,7 +15,6 @@ public class GenStep_CleanBuiltRoads : GenStep
 
     public override void Generate(Map map, GenStepParams parms)
     {
-        //RailsAndRoadsOfTheRim.DebugLog("Cleaning up roads if I can");
         var terrainGrid = map.terrainGrid;
         foreach (var current in map.AllCells)
         {
@@ -33,7 +33,6 @@ public class GenStep_CleanBuiltRoads : GenStep
 
             if (thingList.Count > 0)
             {
-                //RailsAndRoadsOfTheRim.DebugLog("Placed " + thingList.Count + " things on top of " + terrainDefHere.label);
                 MoveThings(map, current);
             }
 
@@ -112,10 +111,8 @@ public class GenStep_CleanBuiltRoads : GenStep
     {
         var thingList = cell.GetThingList(map);
         var terrainGrid = map.terrainGrid;
-        //thingList.RemoveAll(item => item !=null);
         foreach (var thingToMove in thingList) // Go through all things on that cell
         {
-            //RailsAndRoadsOfTheRim.DebugLog("Trying to move " + thingToMove.Label);
             var cellChecked = new List<IntVec3>
             {
                 cell
@@ -134,7 +131,6 @@ public class GenStep_CleanBuiltRoads : GenStep
                         continue;
                     }
 
-                    //RailsAndRoadsOfTheRim.DebugLog("Moved "+thingToMove.Label);
                     thingToMove.SetPositionDirect(c);
                     goodCellFound = true;
                     break;
@@ -153,6 +149,7 @@ public class GenStep_CleanBuiltRoads : GenStep
     private static void ExpandNeighbouringCells(ref List<IntVec3> cells, Map map)
     {
         var expandedCells = new List<IntVec3>();
+        var list = cells;
         foreach (var c in cells)
         {
             if (!expandedCells.Contains(c) && !cells.Contains(c)) // Add the current cell
@@ -160,12 +157,12 @@ public class GenStep_CleanBuiltRoads : GenStep
                 expandedCells.Add(c);
             }
 
-            foreach (var c2 in GenAdjFast.AdjacentCells8Way(c)) // Add all the current cell's neighbours
+            foreach (var c2 in GenAdjFast.AdjacentCells8Way(c)
+                         .Where(c2 =>
+                             !expandedCells.Contains(c2) && !list.Contains(c2) &&
+                             c2.InBounds(map))) // Add all the current cell's neighbours
             {
-                if (!expandedCells.Contains(c2) && !cells.Contains(c2) && c.InBounds(map))
-                {
-                    expandedCells.Add(c2);
-                }
+                expandedCells.Add(c2);
             }
         }
 

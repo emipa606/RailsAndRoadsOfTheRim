@@ -1,37 +1,149 @@
-# Copilot Instructions for "Rails and Roads of the Rim (Continued)" Mod
+# GitHub Copilot Instructions for Rails and Roads of the Rim (Continued) Mod
+
+This guide provides instructions for using GitHub Copilot to assist in developing the Rails and Roads of the Rim (Continued) mod for RimWorld.
 
 ## Mod Overview and Purpose
-"Rails and Roads of the Rim (Continued)" (RRotR) is an expansion and continuation of the popular "Roads of the Rim" mod, originally developed by Loconeko and further building upon Jecrell's "RimRoads" from the beta version of RimWorld. The primary purpose of this mod is to facilitate the construction of roads and railways on the world map, enhancing transportation efficiency and aesthetic visual appeal in the game. The mod supports integration with other transportation-related mods such as SRTS Trains and Decorative Railway Props.
+
+The Rails and Roads of the Rim (Continued) mod is an update to the Vampiresbanes mod and continues the expansion on Loconeko's "Roads of the Rim." This mod adds buildable rail to the buildable road options, allowing for faster movement and improved construction sites on the world map. It also supports the SRTS Trains and Decorative Railway Props mods.
 
 ## Key Features and Systems
-- **Construction Sites:** Players can establish construction sites on the world map for building roads and railways by sending caravans equipped with skilled colonists and necessary resources.
-- **Road/Rail Types:** Includes various road types such as asphalt and glitter roads, as well as rail tunnels capable of traversing impassable terrain.
-- **Movement Enhancements:** Roads and rails reduce biome, hills, swamps, and season movement difficulties, enhancing caravan speed.
-- **Upgrade Mechanism:** Roads can be upgraded to higher tier roads, offering partial reimbursement of existing road resources.
-- **Ally Assistance:** Allied factions can contribute to construction efforts, speeding up project completion.
-- **Cost and Difficulty Settings:** Construction costs vary based on terrain and can be adjusted within mod settings to reflect different levels of realism.
+
+### Construction
+- Caravans can create construction sites on the world map.
+- Players can select rail or road types and plan routes.
+- Mistakes can be corrected by clicking on planned sections.
+- Construction sites can be cancelled at any time, with resources lost.
+
+### Work
+- Resources and skilled colonists are used to build construction sites.
+- Progress is shown on the world map.
+- Construction must be done in the order planned.
+- Movement of caravans and colonist availability affect work progress.
+
+### Building Costs
+- Base costs depend on the type of road or rail.
+- Terrain modifiers affect costs.
+- Construction costs can be reduced in settings.
+
+### Upgrades
+- Existing roads can be upgraded to faster types.
+- Rails cannot be upgraded.
+
+### Allies Help
+- Allied factions can assist in building rail or roads.
+
+### Impact on Movement
+- Roads and rails provide movement cost multipliers.
+- Rails cancel some terrain movement costs.
+- Glitter roads, glitterrail, and railroad can be built over water.
 
 ## Coding Patterns and Conventions
-- **Static Classes:** Extensively used for utility functions and static methods.
-- **Public Classes and Methods:** Ensures accessibility across the mod's architecture, providing flexibility to integrate with Harmony patches and other mods.
-- **Consistent Naming:** Names follow C# standards with PascalCasing for classes and methods, improving code readability and maintainability.
+
+1. **Mod Structure**:
+   - Follow the standard RimWorld mod structure with separate folders for XML and C# files.
+   - Use meaningful naming conventions for classes, methods, and variables.
+
+2. **C# Code**:
+   - Use `HarmonyPatches` for modding.
+   - Implement methods in classes that handle specific functionalities (e.g., `CaravanArrivalAction_StartWorkingOnRoad` for handling arrival actions).
+   - Use `DefModExtension` for custom properties of definitions.
+
+3. **XML Integration**:
+   - Define XML files for game objects and settings.
+   - Use `Defs` folders to organize different types of definitions (e.g., `ResearchProjectDefs`).
+
+4. **Error Handling**:
+   - Implement error handling and logging for better mod stability and troubleshooting.
 
 ## XML Integration
-- **Def Mod Extensions:** Custom XML definitions are used to configure road and rail properties (e.g., `DefModExtension_RotR_RoadDef`).
-- **XML Parsing:** The mod employs XML to JSON serialization for mod configuration, ensuring efficient data management (e.g., `RotR_cost` class).
+
+### XML Files
+
+1. **GenStepDef**:
+   - Define generation steps for roads and rails in the `MapGeneration` folder.
+
+2. **DesignatorDropdownGroupDef**:
+   - Define designator dropdown groups for easy access to road and rail construction tools.
+
+3. **TerrainAffordanceDef**:
+   - Define terrain affordances that allow roads and rails to be built on specific terrains.
+
+4. **ResearchProjectDef**:
+   - Define research projects related to roads and rails.
+
+5. **ResearchTabDef**:
+   - Define research tabs for organizing related research projects.
+
+### XML Example
+
+xml
+<!-- E:\SteamLibrary\steamapps\common\RimWorld\Mods\RailsAndRoadsOfTheRim\1.6\Defs\ResearchProjectDefs\ResearchProject_RotR.xml -->
+<Defs>
+  <ResearchProjectDef>
+    <defName>RotR_Railroads</defName>
+    <label>Railroads</label>
+    <description>Research railroads to build faster movement tracks.</description>
+    <baseCost>5000</baseCost>
+    <techLevel>Advanced</techLevel>
+    <prerequisites>
+      <li>RotR_Roads</li>
+    </prerequisites>
+    <effects>
+      <li>ResearchEffectDef named="ResearchEffect_Railroads"</li>
+    </effects>
+  </ResearchProjectDef>
+</Defs>
+
 
 ## Harmony Patching
-- **Patch Implementation:** Harmony patches are used to alter core game functionalities for compatibility with RRotR features. The `HarmonyPatches` class and `Patch_WorldLayer_Paths_AddPathEndpoint` provide seamless integration.
-- **Method Patching:** Patches modify game methods to adapt the base movement and construction logic to accommodate new transportation systems.
+
+### HarmonyPatches Example
+
+csharp
+// E:\SteamLibrary\steamapps\common\RimWorld\Mods\RailsAndRoadsOfTheRim\Source\RailsAndRoadsOfTheRim\HarmonyPatches\Caravan_GetGizmos.cs
+using HarmonyLib;
+using RimWorld;
+using Verse;
+
+namespace RailsAndRoadsOfTheRim.HarmonyPatches
+{
+    [HarmonyPatch(typeof(Caravan), nameof(Caravan.GetGizmos))]
+    public static class Caravan_GetGizmos
+    {
+        public static void Postfix(Caravan __instance, ref IEnumerable<Gizmo> __result)
+        {
+            // Add custom gizmos for the caravan
+            List<Gizmo> gizmos = __result.ToList();
+            gizmos.Add(new Command_RotateRoad { caravan = __instance });
+            __result = gizmos;
+        }
+    }
+}
+
 
 ## Suggestions for Copilot
-- **Leverage Code Templates:** Utilize existing static classes as templates when adding new utility functions.
-- **Harmony Patch Templates:** Employ patch method patterns for expanding mod compatibility with future game updates.
-- **XML Handling:** Use defined XML parsing methods for integrating additional configurable options or road types.
-- **Consistent Naming:** Maintain standardized naming conventions to improve mod code integration and future scalability.
-- **Documentation Comments:** Encourage comprehensive XML and C# documentation comments to assist in mod debugging and collaboration.
 
-With these instructions and insights into the mod's architecture, GitHub Copilot can assist developers in maintaining and expanding the RRotR functionality for the RimWorld player community.
+1. **Contextual Snippets**:
+   - Use contextual snippets to generate code based on specific class or method requirements.
+   - Example: Generate a `CaravanArrivalAction` method for handling arrival actions.
+
+2. **Code Completion**:
+   - Use code completion to quickly add methods and properties to existing classes.
+   - Example: Add a new method to `CaravanState` for handling state transitions.
+
+3. **XML Definition Generation**:
+   - Use Copilot to generate XML definitions for new game objects.
+   - Example: Generate an XML definition for a new road type.
+
+4. **Harmony Patch Generation**:
+   - Use Copilot to generate Harmony patches for modifying existing game behavior.
+   - Example: Generate a patch for adding new gizmos to caravans.
+
+5. **Error Handling and Logging**:
+   - Use Copilot to generate error handling and logging code for better mod stability.
+   - Example: Add try-catch blocks and logging statements to critical methods.
+
+By following these guidelines and suggestions, developers can efficiently use GitHub Copilot to enhance the Rails and Roads of the Rim (Continued) mod for RimWorld.
 
 ## Project Solution Guidelines
 - Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
@@ -40,3 +152,19 @@ With these instructions and insights into the mod's architecture, GitHub Copilot
 - When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
 - In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
 - For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Temporary files
+
+- Do not create temporary files, build output, test artifacts, or Copilot session
+  folders inside the mod root.
+- Store temporary artifacts under `%USERPROFILE%\CopilotTemp\[modname]`.
+- Direct build and test output there as well, without changing project settings.
+- Clean up task-specific temporary artifacts when finished.
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+

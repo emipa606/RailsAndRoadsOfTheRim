@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using RimWorld;
 using RimWorld.Planet;
@@ -47,7 +46,8 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
 
     private float GetPercentageDone(string name)
     {
-        if (!costs.TryGetValue(name, out var costTotal) & !left.TryGetValue(name, out var leftTotal))
+        var leftTotal = 0f;
+        if (!costs.TryGetValue(name, out var costTotal) && !left.TryGetValue(name, out leftTotal))
         {
             return 0;
         }
@@ -88,14 +88,6 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
             swampinessModifier = swampiness / RailsAndRoadsOfTheRimSettings.SwampinessCostDouble;
 
             bridgeModifier = 0f;
-            /* TO DO : River crossing
-            List<int> fromTileNeighbors = new List<int>();
-            Find.WorldGrid.GetTileNeighbors(parent.Tile, fromTileNeighbors);
-            foreach (Tile.RiverLink aRiver in fromTile.Rivers )
-            {
-                Log.Message("River in FROM tile : neighbor="+aRiver.neighbor+", river="+aRiver.river.ToString());
-            }
-            */
         }
         catch (Exception e)
         {
@@ -337,7 +329,7 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
             {
                 foreach (var aLink in fromTile.potentialRoads.ToArray())
                 {
-                    if ((aLink.neighbor == toTile_int) &
+                    if (aLink.neighbor == toTile_int &&
                         RailsAndRoadsOfTheRim.IsRoadBetter(parentSite.roadDef, aLink.road))
                     {
                         fromTile.potentialRoads.Remove(aLink);
@@ -353,7 +345,7 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
             {
                 foreach (var aLink in toTile.potentialRoads.ToArray())
                 {
-                    if ((aLink.neighbor == parentSite.Tile) &
+                    if (aLink.neighbor == parentSite.Tile &&
                         RailsAndRoadsOfTheRim.IsRoadBetter(parentSite.roadDef, aLink.road))
                     {
                         toTile.potentialRoads.Remove(aLink);
@@ -388,20 +380,23 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
             return true;
         }
 
-        var CurrentTile = parentSite.Tile;
-        parentSite.Tile = nextLeg.Tile;
-        var nextNextLeg = nextLeg.Next;
-        // TO DO Here : Check if there's an existing road that is the same or better as the one being built. If there is, skip the next leg
-        if (nextNextLeg != null)
+        if (parentSite != null)
         {
-            nextNextLeg.Previous = null;
-            SetCosts();
-            parentSite.MoveWorkersToNextLeg(
-                CurrentTile); // Move any caravans working on this site to the next leg, and delay faction help if any
-        }
-        else
-        {
-            EndConstruction(caravan); // We have built the last leg. Notify & remove the site
+            var CurrentTile = parentSite.Tile;
+            parentSite.Tile = nextLeg.Tile;
+            var nextNextLeg = nextLeg.Next;
+            // TO DO Here : Check if there's an existing road that is the same or better as the one being built. If there is, skip the next leg
+            if (nextNextLeg != null)
+            {
+                nextNextLeg.Previous = null;
+                SetCosts();
+                parentSite.MoveWorkersToNextLeg(
+                    CurrentTile); // Move any caravans working on this site to the next leg, and delay faction help if any
+            }
+            else
+            {
+                EndConstruction(caravan); // We have built the last leg. Notify & remove the site
+            }
         }
 
         Find.World.worldObjects.Remove(nextLeg);
@@ -511,7 +506,7 @@ public class WorldObjectComp_ConstructionSite : WorldObjectComp
         return stringBuilder.ToString();
     }
 
-    private string GetNiceResourceName(string defName)
+    private static string GetNiceResourceName(string defName)
     {
         var defThing = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
         if (defThing == null || string.IsNullOrEmpty(defThing.label))

@@ -35,7 +35,7 @@ public static class WorldGrid_GetRoadMovementDifficultyMultiplier
 
             var ToTileAsTile = Find.WorldGrid[toTile];
             var HillinessOffset =
-                (float)HillinessMovementDifficultyOffset.Invoke(null, [ToTileAsTile.hilliness]);
+                (float)(HillinessMovementDifficultyOffset.Invoke(null, [ToTileAsTile.hilliness]) ?? 1f);
             if (HillinessOffset > 12f)
             {
                 HillinessOffset = 12f;

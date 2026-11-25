@@ -40,9 +40,9 @@ public class DefModExtension_RotR_RoadDef : DefModExtension
 
     public readonly float percentageOfminConstruction = 0f;
 
-    public readonly TechLevel techlevelToBuild = TechLevel.Neolithic;
-
     public readonly ResearchProjectDef techNeededToBuild = null;
+
+    public readonly TechLevel techlevelToBuild = TechLevel.Neolithic;
 
     public readonly float winterModifier = 0f;
 
@@ -70,20 +70,12 @@ public class DefModExtension_RotR_RoadDef : DefModExtension
         switch (resourceName)
         {
             case "WoodLog":
-                result = ISR2G > 0;
-                break;
             case "Stone":
                 result = ISR2G > 0;
                 break;
             case "Steel":
-                result = ISR2G > 1;
-                break;
             case "Chemfuel":
-                result = ISR2G > 1;
-                break;
             case "Plasteel":
-                result = ISR2G > 1;
-                break;
             case "Uranium":
                 result = ISR2G > 1;
                 break;

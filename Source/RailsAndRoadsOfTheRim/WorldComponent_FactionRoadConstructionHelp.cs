@@ -24,9 +24,9 @@ public class WorldComponent_FactionRoadConstructionHelp(World world) : WorldComp
     private const float helpPerTickMin = 5f;
     private List<bool> boolList_currentlyHelping = [];
 
-    private Dictionary<Faction, int> canHelpAgainAtTick = new Dictionary<Faction, int>();
+    private Dictionary<Faction, int> canHelpAgainAtTick = new();
 
-    private Dictionary<Faction, bool> currentlyHelping = new Dictionary<Faction, bool>();
+    private Dictionary<Faction, bool> currentlyHelping = new();
 
     // those lists are used for ExposeData() to load & save correctly
     private List<Faction> factionList_canHelpAgainAtTick = [];
@@ -45,15 +45,9 @@ public class WorldComponent_FactionRoadConstructionHelp(World world) : WorldComp
             return;
         }
 
-        if (canHelpAgainAtTick == null)
-        {
-            canHelpAgainAtTick = new Dictionary<Faction, int>();
-        }
+        canHelpAgainAtTick ??= new Dictionary<Faction, int>();
 
-        if (currentlyHelping == null)
-        {
-            currentlyHelping = new Dictionary<Faction, bool>();
-        }
+        currentlyHelping ??= new Dictionary<Faction, bool>();
     }
 
     private void SetHelpAgainTick(Faction faction, int tick)
@@ -88,7 +82,6 @@ public class WorldComponent_FactionRoadConstructionHelp(World world) : WorldComp
         _ = helpRequestFailChance / negotiationValue;
         var roll = Rand.Value;
         var amountOfHelp = helpBaseAmount * (1 + (negotiationValue * roll * 5));
-        //Log.Message(String.Format("[RotR] - Negotiation for road construction help : negotiation value = {0:0.00} , fail chance = {1:P} , roll = {2:0.00} , help = {3:0.00}", negotiationValue , failChance, roll , amountOfHelp));
 
         // Calculate how long the faction needs to start helping
         var closestSettlement = site.ClosestSettlementOfFaction(faction);
@@ -116,7 +109,7 @@ public class WorldComponent_FactionRoadConstructionHelp(World world) : WorldComp
         return helpAgainTick != null && !(Find.TickManager.TicksGame >= GetHelpAgainTick(faction));
     }
 
-    public bool IsDeveloppedEnough(Faction faction, DefModExtension_RotR_RoadDef RoadDefModExtension)
+    public static bool IsDeveloppedEnough(Faction faction, DefModExtension_RotR_RoadDef RoadDefModExtension)
     {
         return faction.def.techLevel >= RoadDefModExtension.techlevelToBuild;
     }

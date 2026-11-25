@@ -19,7 +19,6 @@ public static class WorldTargeter_StopTargeting
             return;
         }
 
-        //RailsAndRoadsOfTheRim.DebugLog("StopTargeting");
         RailsAndRoadsOfTheRim.FinaliseConstructionSite(RailsAndRoadsOfTheRim.RoadBuildingState.CurrentlyTargeting);
         RailsAndRoadsOfTheRim.RoadBuildingState.CurrentlyTargeting = null;
     }
